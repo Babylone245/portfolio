@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" class="normal-nav">
+    <button mat-button routerLink="/">Accueil</button>
+    <button mat-button routerLink="/about">À propos</button>
+    <button mat-button routerLink="/contact">Contact</button>
+    <span class="fill-space"></span>
+    <span class="site-title">PortFolio</span>
+  </mat-toolbar>
+  
+  <mat-toolbar color="primary" class="burger-menu-button">
+    <button mat-icon-button (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/">Accueil</button>
+    <button mat-menu-item routerLink="/about">À propos</button>
+    <button mat-menu-item routerLink="/contact">Contact</button>
+  </mat-menu>
