@@ -1,19 +1,20 @@
-<mat-toolbar color="primary" class="normal-nav">
-    <button mat-button routerLink="/">Accueil</button>
-    <button mat-button routerLink="/about">À propos</button>
-    <button mat-button routerLink="/contact">Contact</button>
-    <span class="fill-space"></span>
-    <span class="site-title">PortFolio</span>
-  </mat-toolbar>
-  
-  <mat-toolbar color="primary" class="burger-menu-button">
-    <button mat-icon-button (click)="toggleMenu()">
-      <mat-icon>menu</mat-icon>
-    </button>
-  </mat-toolbar>
-  
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="/">Accueil</button>
-    <button mat-menu-item routerLink="/about">À propos</button>
-    <button mat-menu-item routerLink="/contact">Contact</button>
-  </mat-menu>
+<mat-toolbar class="normal-nav bg-primary">
+  <button mat-button routerLink="/" class="text-white">Accueil</button>
+  <button mat-button routerLink="/about" class="text-white">À propos</button>
+  <button mat-button routerLink="/contact" class="text-white">Contact</button>
+  <span class="fill-space"></span>
+  <span class="site-title">PortFolio</span>
+</mat-toolbar>
+
+
+<mat-toolbar class="burger-menu-button bg-primary">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/">Accueil</button>
+  <button mat-menu-item routerLink="/about">À propos</button>
+  <button mat-menu-item routerLink="/contact">Contact</button>
+</mat-menu>

@@ -1,0 +1,15 @@
+// src/styles/_custom.scss
+
+// Définir la couleur primaire personnalisée
+$primary: #00b0ff;
+$secondary: orange;
+
+.btn {
+    background-color: $primary !important;
+    color: white !important;
+}
+
+// Importer les fichiers SCSS de Bootstrap
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/bootstrap';

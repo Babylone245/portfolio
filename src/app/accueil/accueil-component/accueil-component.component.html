@@ -1,15 +1,130 @@
 <app-navbar></app-navbar>
 <body>
-    <div style="display: flex;">
-        <mat-card style="flex-basis: 30%; align-items: center; background-color: lightgray;">
-          <img src="assets/steven.jpg" alt="Photo">
-        </mat-card>
-        <mat-card style="flex-basis: 70%; padding: 40px;background-color: lightgray;">
-          <h1>RUBAT DU MERAC Steven</h1>
-          <h2>Développeur Full-Stack</h2>
-          <hr style="border: none; border-top: 2px solid #2196F3; margin: 20px 0;">
-          <p>Je suis un développeur passionné par la création de solutions technologiques pour résoudre des problèmes. J'ai une expérience de plus de 5 ans dans le développement de logiciels et je suis spécialisé dans les technologies Web modernes telles que Angular, React et Vue. Je suis également à l'aise avec les technologies back-end telles que Java, Node.js et Python.</p>
-        </mat-card>
-    </div>
-      
+  <div class="container">
+    <mat-card class="home-content">
+      <div class="profile-container">
+        <img src="assets/steven.jpg" alt="Photo" class="profile-image">
+        
+        <div class="button-container">
+          <h1 class="name">RUBAT DU MERAC Steven</h1>
+          <h2 class="title">Développeur Full-Stack</h2>
+          <hr class="divider">
+          <button mat-button (click)="scrollToPresentation()" class="btn bg-secondary btn-lg m-2 p-3 ">Me découvrir</button>
+          <button mat-button (click)="scrollToExperience()" class="btn btn-lg m-2 p-3 ">Mon parcours</button>
+        </div>
+      </div>
+
+      <div class="home-text">
+        <!-- Section Présentation Générale -->
+        <div id="presentation" class="presentation">
+          <h3>Ma présentation générale</h3>
+          <p class="mb-3">
+            Dans mon parcours professionnel, je me laisse guider par deux valeurs fondamentales : <strong>le respect</strong> et <strong>la résilience</strong>.
+          </p>
+          <p class="mb-3">
+            Le respect pour moi est plus que de la politesse, c’est essentiel pour toutes les interactions sociales et encore plus dans le cadre professionnel.
+            En accordant une importance primordiale au respect envers mes collègues, camarades de classe et clients, je crée un environnement agréable où la
+            confiance et la cohésion permettent une productivité accrue. Cette valeur est essentielle pour établir des relations solides et harmonieuses,
+            favorisant ainsi une collaboration fructueuse.
+          </p>
+          <p class="mb-3">
+            La résilience est une qualité précieuse. Comme le dit <em>Winston Churchill</em> : <q>Le succès, c'est se promener d'échecs en échecs tout en restant motivé.</q>
+            Elle permet d’affronter les défis et les échecs tout en gardant la motivation nécessaire pour rebondir dans n'importe quelle situation.
+            Au cours de mes cinq années d'études supérieures et en réalisant des projets parallèles avec ma propre entreprise, je n’ai jamais abandonné face
+            à un problème technique ou complexe, car je sais que lorsqu'on réussit, la satisfaction que l'on ressent vaut tous les efforts.
+          </p>
+          <p class="mb-3">
+            En ce qui concerne mes qualités personnelles, je suis <strong>sociable</strong> et j’ai beaucoup d’<strong>humour</strong>. Cela m’a permis de m'intégrer
+            facilement dans les équipes. Lors de mon arrivée en stage, cette capacité d’intégration m’a permis de rapidement comprendre les enjeux du projet
+            et d’être efficace dès le départ. Je suis toujours souriant et de bonne humeur, et je m'efforce de transmettre cette positivité autour de moi.
+            Pour moi, une <strong>ambiance de travail agréable</strong> est la clé d’une productivité durable.
+          </p>
+          <p class="mb-3">
+            Mon projet professionnel a débuté dès le lycée, avec l’option <em>Sciences de l'Ingénieur Numérique (SIN)</em>, qui a éveillé ma passion pour
+            l’informatique et la résolution de problèmes complexes. Par la suite, j’ai entamé un <strong>Mastère Expert en Ingénierie Logicielle</strong>
+            dans lequel je me suis pleinement épanoui, allant jusqu'à créer ma propre auto-entreprise dès la deuxième année. Mon objectif à terme :
+            <strong>devenir Tech Lead</strong>.
+          </p>
+          <p>
+            En dehors du travail, je me passionne pour les <strong>jeux vidéo</strong> et le <strong>sport</strong>. Le sport me permet de repousser mes
+            limites et de canaliser mon énergie, tandis que les jeux vidéo sont une source de plaisir et de détente.
+          </p>
+        </div>
+
+        <div class="container py-5">
+          <h2 class="text-primary fw-bold mb-4 text-center" id="experience">Mon parcours</h2>
+          <div class="timeline">
+            
+            <!-- Événement gauche -->
+            <div class="timeline-item left">
+              <div class="timeline-content shadow rounded p-4">
+                <h5 class="fw-bold">Septembre 2023 -> Aout 2025 - Alternance - Développeur Full Stack</h5>
+                <p class="text-muted mb-1">CGI - Bordeaux</p><a href="https://www.cgi.com/france/fr-fr"><img src="assets/cgi.png" href="https://www.cgi.com/france/fr-fr" style="width: 100px;"></a>
+                <p>Développement d'évolution en Java/Angular dans une TMA</p>
+                <button class="btn bg-secondary btn-lg m-1 p-2">Babylone</button>
+                <button class="btn bg-secondary btn-lg m-1 p-2">Extend</button>
+                <button class="btn btn-lg m-1 p-2">Java</button>
+                <button class="btn btn-lg m-1 p-2">Angular</button>
+                <button class="btn btn-lg m-1 p-2">GIT</button>
+                <button class="btn btn-lg m-1 p-2">SQL</button>
+                <button class="btn btn-lg m-1 p-2">Gestion de projet</button>
+                <button class="btn btn-lg m-1 p-2">Communication</button>
+                <button class="btn btn-lg m-1 p-2">Test</button>
+                <button class="btn btn-lg m-1 p-2">Documentation</button>
+              </div>
+            </div>
+        
+            <!-- Événement droite -->
+            <div class="timeline-item right">
+              <div class="timeline-content shadow rounded p-4">
+                <h5 class="fw-bold">Mars 2023 -> Aout 2023 - Stage - Développeur Full Stack</h5>
+                <p class="text-muted mb-1">CGI - Bordeaux</p><a href="https://www.cgi.com/france/fr-fr"><img src="assets/cgi.png" style="width: 100px;"></a>
+                <p>Développement d'évolution en Java/Angular dans une TMA</p>
+                <button class="btn bg-secondary btn-lg m-1 p-2">Babylone</button>
+                <button class="btn bg-secondary btn-lg m-1 p-2">Extend</button>
+                <button class="btn btn-lg m-1 p-2">Java</button>
+                <button class="btn btn-lg m-1 p-2">Angular</button>
+                <button class="btn btn-lg m-1 p-2">GIT</button>
+                <button class="btn btn-lg m-1 p-2">SQL</button>
+                <button class="btn btn-lg m-1 p-2">Gestion de projet</button>
+                <button class="btn btn-lg m-1 p-2">Communication</button>
+                <button class="btn btn-lg m-1 p-2">Test</button>
+                <button class="btn btn-lg m-1 p-2">Documentation</button>
+              </div>
+            </div>
+        
+            <!-- Ajoute autant de blocs que tu veux -->
+            <div class="timeline-item left">
+              <div class="timeline-content shadow rounded p-4">
+                <h5 class="fw-bold">Septembre 2020 -> Aout 2025 - Étudiant - Mastère Expert en ingénierie du logiciel</h5>
+                <p class="text-muted mb-1">ESIEA - Dax</p><a href="https://www.esiea.fr/"><img src="assets/esiea.png" style="width: 100px;"></a>
+                <p>Formation en ingénierie logicielle, gestion de projet agile, conception orientée objet, architecture logicielle</p>
+                <p>La formation permet la pratique avec notamment la réalisation de projet chaque semestre</p>
+                <button class="btn bg-secondary btn-lg m-1 p-2">Simple</button>
+                <button class="btn bg-secondary btn-lg m-1 p-2">Transurvey</button>
+                <button class="btn bg-secondary btn-lg m-1 p-2">Geosavior</button>
+                <button class="btn btn-lg m-1 p-2">Java</button>
+                <button class="btn btn-lg m-1 p-2">Angular</button>
+                <button class="btn btn-lg m-1 p-2">Deploiement</button>
+                <button class="btn btn-lg m-1 p-2">Adaptabilité</button>
+                <button class="btn btn-lg m-1 p-2">Communication</button>
+                <button class="btn btn-lg m-1 p-2">GIT</button>
+                <button class="btn btn-lg m-1 p-2">SQL</button>
+                <button class="btn btn-lg m-1 p-2">Gestion de projet</button>
+                <button class="btn btn-lg m-1 p-2">Documentation</button>
+              </div>
+            </div>
+            <div class="timeline-item right">
+              <div class="timeline-content shadow rounded p-4">
+                <h5 class="fw-bold">Septembre 2016 -> Aout 2019 - Etudiant - Bac STI2D</h5>
+                <p class="text-muted mb-1">Lycée de borda - Dax</p><a href="https://lyceedeborda.fr/"><img src="assets/borda.png" style="width: 100px;"></a>
+                <p>Baccalauréat sciences et technologies de l'industrie et du développement durable option Systèmes d'Information et Numérique</p>
+              </div>
+            </div>
+        
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
 </body>

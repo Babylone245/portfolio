@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./accueil-component.component.scss']
 })
 export class AccueilComponentComponent {
+  
+  scrollToPresentation() {
+    const element = document.getElementById('presentation');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 
+  
+  scrollToExperience() {
+    const element = document.getElementById('experience');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }
