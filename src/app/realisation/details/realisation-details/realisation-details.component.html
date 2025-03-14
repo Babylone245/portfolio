@@ -58,6 +58,166 @@
           <br>
           Cependant, je regrette de ne pas avoir mis en place un <strong>système de détection automatique des animaux</strong> à partir des photos envoyées. Cela aurait apporté une <strong>valeur ajoutée</strong> supplémentaire à l’application.
         </p>
+        <h3 class="realisation-subtitle">Compétences associées : </h3>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'git']">GIT</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'sql']">SQL</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'java']">Java</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'angular']">Angular</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'test']">Test</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'documentation']">Documentation</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'communication']">Communication</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'adaptabilite']">Adaptabilité</button>
       </div>      
   </div>
+  <div *ngIf="this.real == 'transurvey'" class="realisation-card">
+    <div class="image-container">
+        <img src="assets/transurvey.png" alt="Transurvey" class="realisation-image" />
+    </div>
+    <div class="realisation-content">
+        <!-- Titre principal -->
+        <h2 class="realisation-title">Réalisation – Transurvey</h2>
+      
+        <!-- Contexte -->
+        <h3 class="realisation-subtitle">Contexte</h3>
+        <p class="realisation-text">
+          Lors de ma <strong>deuxième année d’études</strong>, avec un groupe de quatre étudiants, nous avons développé une <em>application web</em> pour la <strong>Régie Régionale des Transports des Landes (RRTL)</strong>. Ce projet avait pour objectif de permettre à la RRTL de créer des questionnaires personnalisés avec plusieurs étapes. Par exemple, une question pouvait proposer quatre smileys différents comme options de réponse : content, pas content, etc. Après la création du questionnaire, un <strong>QR code</strong> était généré, destiné à être affiché dans les différents bus afin que les usagers puissent y répondre. L’application répondait ainsi à un besoin précis : récolter les avis et mesurer la satisfaction des usagers sur les différentes lignes de bus.
+        </p>
+      
+        <!-- Déroulé du projet -->
+        <h3 class="realisation-subtitle">Déroulé du projet</h3>
+        <p class="realisation-text">
+          Après avoir récolté les besoins de la RRTL, j’ai commencé à développer la création d’un questionnaire avec <strong>Angular</strong> (lien compétence) pour le front-end et <strong>Java</strong> (lien compétence) pour le back-end.  
+          Tout d’abord, j’ai mis en place un Auth Guard pour sécuriser la route permettant de créer un questionnaire. Ensuite, j’ai créé les différents objets côté front et back.  
+          Ainsi, j’avais un objet <strong>Formulaire</strong> comprenant une liste de questions, et l’objet <strong>Question</strong> contenait :
+          <ul>
+            <li><p class="realisation-text">un type de question,</p></li>
+            <li><p class="realisation-text">un libellé,</p></li>
+            <li><p class="realisation-text">l’étape du formulaire à laquelle elle apparaît (il y avait 3 étapes).</p></li>
+          </ul>
+          <p class="realisation-text">
+          Sur chaque objet, j’ai appliqué les annotations JPA, par exemple :  
+          </p>
+          <ul>
+            <li><p class="realisation-text"><strong>@Entity</strong> : Persistance de l’objet en base,</p></li>
+            <li><p class="realisation-text"><strong>@Id</strong> : La clé primaire de la table,</p></li>
+            <li><p class="realisation-text"><strong>@GeneratedValue</strong> : pour l’auto-incrémentation de l’ID en base de données,</p></li>
+            <li><p class="realisation-text"><strong>@OneToMany</strong> : pour gérer l’association entre le formulaire et la liste des questions, par exemple.</p></li>
+          </ul>
+          <p class="realisation-text">
+          Grâce à ces annotations, j’ai pu générer automatiquement le schéma de la base de données via <strong>JPA</strong>.  
+          Sur la partie front-end, j’ai utilisé un <strong>mat-select</strong> pour permettre la sélection du type de question. J’ai parcouru l’énumération des types de questions avec un <strong>ngFor</strong> afin d’afficher toutes les options possibles.  
+          J’ai également ajouté:
+        </p>
+          <ul>
+            <li><p class="realisation-text">un <strong>input text</strong> pour saisir le libellé de la question,</p></li>
+            <li><p class="realisation-text">un autre <strong>mat-select</strong> pour choisir l’étape où la question doit apparaître (même logique que pour le type de question).</p></li>
+          </ul>
+        <p class="realisation-text">
+          Une fois la question validée, elle est ajoutée (push) au tableau de questions du formulaire, qui avait été initialisé dans le <strong>ngOnInit</strong> du composant.  
+          Enfin, lorsque l’utilisateur valide entièrement le formulaire, l’objet <strong>Formulaire</strong>, avec sa liste de questions, est envoyé au back-end via une requête <strong>POST</strong>. L’enregistrement se fait ensuite via le repository <strong>JPA</strong>, qui persiste automatiquement en cascade les questions associées.
+        </p>
+
+        <!-- Conclusion -->
+        <h3 class="realisation-subtitle">Conclusion</h3>
+        <p class="realisation-text">
+          À la fin du projet, je me suis rendu à la <strong>RRTL</strong> pour déployer l’application sur leurs serveurs, leur permettant ainsi de l’essayer. Nous avons également fourni les différentes documentations techniques, fonctionnelles et également le git afin de faciliter la continuité du projet.  
+          Avec du recul, pour un tout premier projet en <strong>Java/Angular</strong>, je pense avoir particulièrement bien réussi la partie sur laquelle j’ai travaillé, de plus j’ai pu apporter une plus-value en déployant l’application dans l’entreprise.  
+          Le projet s’est très bien terminé, offrant à la RRTL une application fonctionnelle, permettant de répondre à leurs besoins et ainsi récolter les différents avis des usagers des lignes de bus de la RRTL.  
+          Ce projet était très complet, autant techniquement que fonctionnellement, ce qui a clairement contribué à ma montée en compétences rapide. Il m’a constamment poussé à dépasser mes limites, rendant l’expérience particulièrement enrichissante.
+        </p>
+        <h3 class="realisation-subtitle">Compétences associées : </h3>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'git']">GIT</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'sql']">SQL</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'java']">Java</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'angular']">Angular</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'test']">Test</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'documentation']">Documentation</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'communication']">Communication</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'deploiement']">Deploiement</button>
+    </div>    
+</div>
+<div *ngIf="this.real == 'simple'" class="realisation-card">
+    <div class="image-container">
+        <img src="assets/simple.png" alt="Simple" class="realisation-image" />
+    </div>
+    <div class="realisation-content">
+        <!-- Titre principal -->
+        <h2 class="realisation-title">Réalisation – Simple</h2>
+      
+        <!-- Contexte -->
+        <h3 class="realisation-subtitle">Contexte</h3>
+        <p class="realisation-text">
+          Lors du début de ma deuxième année, avec un groupe de quatre étudiants, nous avons développé une application client lourd pour <strong>Etxe Logistika</strong>.
+          Ce projet avait pour objectif de faciliter et d'accélérer les facturations de l’entreprise Etxe Logistika, car dans le domaine de la logistique, il y a énormément de coûts à inclure dans la facturation. De plus, étant donné qu'ils ont plus de 30 clients différents, cela devenait très chronophage et rébarbatif. C’est pourquoi ils avaient besoin d’une application leur permettant d’automatiser certaines parties de cette facturation pour les soulager au maximum.
+        </p>
+      
+        <!-- Déroulé du projet -->
+        <h3 class="realisation-subtitle">Déroulé du projet</h3>
+        <p class="realisation-text">
+          Pour ce projet, en plus de mon rôle de développeur au sein de l’équipe, j’étais également chef de projet, responsable de la gestion du projet (lien compétence). Dans ce cadre, j’ai mis en place la méthodologie agile. Nous avons donc réalisé les différentes cérémonies agiles et, pour suivre l’avancement du projet, j’ai mis en place <strong>Jira</strong> pour faire progresser les différentes User Stories en cours de développement pendant le sprint. J’ai aussi facilité la collaboration en mettant en place un workflow Git.
+          <br>
+          Pour le développement de cette application client lourd, nous avons utilisé <strong>C#</strong>.
+        </p>
+        <p class="realisation-text">
+          Pour ma part, je me suis occupé de la partie récolte des données. En effet, nous avions besoin des données issues de différents fichiers CSV pour automatiser la facturation des coûts. Cette collecte se faisait via l’utilisateur. Sur la page principale de l’application, développée avec <strong>WPF</strong>, j’ai créé un <strong>StackPanel</strong> contenant un libellé et un bouton. Lorsqu'on cliquait sur ce bouton, j’ai utilisé la fonction native de .NET pour ouvrir l’explorateur de fichiers, avec un filtre spécifiant les fichiers CSV afin d'éviter des erreurs. Une fois le fichier sélectionné, j’ai effectué un mapping des informations en créant un objet représentant les différentes colonnes du CSV. Étant donné que le fichier avait une structure statique en termes de colonnes, j’ai pu typer les différentes colonnes. Ensuite, j’ai fait une boucle <strong>for</strong> sur les lignes du fichier CSV en utilisant un <strong>CSVReader</strong> et j’ai initialisé un objet avec les différentes valeurs dans un objet et ensuite j’ai fait une requête d'Insertion en base de données.
+        </p>
+        <p class="realisation-text">
+          Ensuite, j’ai développé la création d’une synthèse par client sur la page principale.
+          J’ai rempli une <strong>ComboBox</strong> avec les différents clients récupérés dynamiquement via une requête en base de données, dès que l’utilisateur sélectionne un client cela débute la génération d’un fichier Excel contenant les différents consommables avec le nombre que le client a consommé, le prix unitaire par consommable et, pour terminer, la marge que prend Etxe Logistika suivant le client. Je les récupère via une requête <strong>SELECT</strong> en base de données suivant le client ensuite j'ai crée un <strong>xlworksheet</strong> et je boucle sur les consommables pour insérer dans chaque ligne du <strong>xlworksheet</strong> le consommable, le nombre, le prix unitaire et, pour le total, j’insère une formule permettant de calculer le total automatiquement. Ainsi, même après la génération, si le commanditaire modifie une ligne, cela se recalcule automatiquement. Dès que toutes les lignes sont générées, j’ai utilisé la fonction native de .NET <strong>SaveFileDialog</strong> en ayant défini le nom du fichier “Synthèse_NomClient_Mois”.
+        </p>
+
+        <!-- Conclusion -->
+        <h3 class="realisation-subtitle">Conclusion</h3>
+        <p class="realisation-text">
+          À la fin du projet, je me suis occupé de mettre en place un <strong>VPS</strong> pour héberger la base de données de l’application et la déployer sur le PC du gérant d’Etxe Logistika. Tellement satisfait de la solution que nous lui avons proposée et du travail réalisé, il nous a par la suite embauchés en freelance pour ajouter de nouvelles fonctionnalités.
+          <br>
+          Avec du recul, cette collaboration m’a beaucoup apporté sur le plan professionnel. Découvrir la gestion de projet de cette manière, et voir qu’elle a été aussi réussie, me rend particulièrement satisfait. Plus de 4 ans après Etxe Logistika, il est toujours utilisé mensuellement pour générer leurs factures et leurs documents administratifs, et il est maintenant question d’éventuellement l'étendre à des entreprises partenaires de Etxe Logistika.
+        </p>
+        <h3 class="realisation-subtitle">Compétences associées : </h3>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'projet']">Gestion de projet</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'git']">GIT</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'sql']">SQL</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'communication']">Communication</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'documentation']">Documentation</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'deploiement']">Deploiement</button>
+        <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'adaptabilite']">Adaptabilité</button>
+    </div>      
+</div>
+<div *ngIf="this.real == 'babylone'" class="realisation-card">
+    <div class="image-container">
+        <img src="assets/Logo-CEE.png" alt="Babylone" class="realisation-image" />
+    </div>
+    <div class="realisation-content">
+        <!-- Titre principal -->
+        <h2 class="realisation-title">Réalisation – BABYLONE ENCOURS </h2>
+    </div>
+    <h3 class="realisation-subtitle">Compétences associées : </h3>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'projet']">Gestion de projet</button>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'git']">GIT</button>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'sql']">SQL</button>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'java']">Java</button>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'angular']">Angular</button>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'test']">Test</button>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'documentation']">Documentation</button>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'deploiement']">Deploiement</button>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'communication']">Communication</button>
+</div>
+<div *ngIf="this.real == 'extends'" class="realisation-card">
+    <div class="image-container">
+        <img src="assets/Logo-CEE.png" alt="EXTENDS" class="realisation-image" />
+    </div>
+    <div class="realisation-content">
+        <!-- Titre principal -->
+        <h2 class="realisation-title">Réalisation – EXTENDS ENCOURS </h2>
+    </div>
+    <h3 class="realisation-subtitle">Compétences associées : </h3>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'projet']">Gestion de projet</button>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'git']">GIT</button>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'sql']">SQL</button>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'java']">Java</button>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'angular']">Angular</button>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'test']">Test</button>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'documentation']">Documentation</button>
+    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'communication']">Communication</button>
+</div>
   

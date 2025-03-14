@@ -52,9 +52,9 @@
     </section>
     <section class="competence-section">
     <h4>Réalisation associées : </h4>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Babylone</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Extends</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Transurvey</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'babylone']">Babylone</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'extends']">Extends</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'transurvey']">Transurvey</button>
     <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'geosavior']">Geosavior</button>
     </section>
   </div>
@@ -100,9 +100,9 @@
     </section>
     <section class="competence-section">
     <h4>Réalisation associées : </h4>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Babylone</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Extends</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Transurvey</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'babylone']">Babylone</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'extends']">Extends</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'transurvey']">Transurvey</button>
     <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'geosavior']">Geosavior</button>
     </section>
 </div>
@@ -123,14 +123,14 @@
         <h4>Contexte professionnel</h4>
         <p>
             De nos jours, toutes les applications de grande envergure utilisent SQL, par exemple Netflix, Microsoft, LinkedIn, Amazon, ce qui prouve que SQL est vraiment très populaire.
-            Dans mon contexte professionnel actuel, pour ma réalisation <strong><a href="extends-link">Extends</a></strong>, en plus de reprendre toutes les fonctionnalités d’une application existante, nous devons également récupérer toutes les données. Je ne suis pas en charge de la réalisation des scripts SQL pour les intégrer dans Extends, cela me permet de me rendre compte de l’importance de SQL pour la récupération de données d’une base existante et l'intégrer dans une autre base de données.
+            Dans mon contexte professionnel actuel, pour ma réalisation <strong><a [routerLink]="['/realisation', 'extends']">Extends</a></strong>, en plus de reprendre toutes les fonctionnalités d’une application existante, nous devons également récupérer toutes les données. Je ne suis pas en charge de la réalisation des scripts SQL pour les intégrer dans Extends, cela me permet de me rendre compte de l’importance de SQL pour la récupération de données d’une base existante et l'intégrer dans une autre base de données.
         </p>
     </section>
 
     <section class="competence-section">
         <h4>Expérience professionnelle</h4>
         <p>
-            Dans le cadre de la réalisation du projet <strong><a href="babylone-link">Babylone</a></strong>, j'ai été chargé d'une évolution nécessitant la création d'une nouvelle table. Cette table remplaçait deux colonnes existantes dans une table d'origine. L'enjeu était de migrer ces deux colonnes sur plus de 50 000 lignes sans perdre d'intégrité des données.
+            Dans le cadre de la réalisation du projet <strong><a [routerLink]="['/realisation', 'babylone']">Babylone</a></strong>, j'ai été chargé d'une évolution nécessitant la création d'une nouvelle table. Cette table remplaçait deux colonnes existantes dans une table d'origine. L'enjeu était de migrer ces deux colonnes sur plus de 50 000 lignes sans perdre d'intégrité des données.
         </p>
         <p>
             Pour ce faire, j'ai dû concevoir une requête de rattrapage qui consistait à :
@@ -165,10 +165,10 @@
     <h4>Réalisation associées : </h4>
     <section class="competence-section">
     <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'geosavior']">Geosavior</button>
-            <button class="btn bg-secondary btn-lg m-1 p-2">Babylone</button>
-            <button class="btn bg-secondary btn-lg m-1 p-2">Extends</button>
-            <button class="btn bg-secondary btn-lg m-1 p-2">Transurvey</button>
-            <button class="btn bg-secondary btn-lg m-1 p-2">Simple</button>
+            <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'babylone']">Babylone</button>
+            <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'extends']">Extends</button>
+            <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'transurvey']">Transurvey</button>
+            <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'simple']">Simple</button>
     </section>
 </div>
 <div *ngIf="this.comp == 'git'" class="competence-details">
@@ -229,10 +229,10 @@
     <h4>Réalisation associées : </h4>
     <section class="competence-section">
     <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'geosavior']">Geosavior</button>
-            <button class="btn bg-secondary btn-lg m-1 p-2">Babylone</button>
-            <button class="btn bg-secondary btn-lg m-1 p-2">Extends</button>
-            <button class="btn bg-secondary btn-lg m-1 p-2">Transurvey</button>
-            <button class="btn bg-secondary btn-lg m-1 p-2">Simple</button>
+            <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'babylone']">Babylone</button>
+            <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'extends']">Extends</button>
+            <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'transurvey']">Transurvey</button>
+            <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'simple']">Simple</button>
     </section>
 </div>
 <div *ngIf="this.comp == 'deploiement'" class="competence-details">
@@ -295,8 +295,8 @@
     </section>
     <section class="competence-section">
     <h4>Réalisation associées : </h4>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Transurvey</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Simple</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'transurvey']">Transurvey</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'simple']">Simple</button>
 </section>
 </div>
 <div *ngIf="this.comp == 'communication'" class="competence-details">
@@ -354,10 +354,10 @@
     <section class="competence-section">
     <h4>Réalisation associées : </h4>
     <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'geosavior']">Geosavior</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Babylone</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Extends</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Transurvey</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Simple</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'babylone']">Babylone</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'extends']">Extends</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'transurvey']">Transurvey</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'simple']">Simple</button>
 </section>
 </div>
 <div *ngIf="this.comp == 'projet'" class="competence-details">
@@ -420,9 +420,9 @@
     </section>
     <section class="competence-section">
     <h4>Réalisation associées : </h4>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Babylone</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Extends</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Simple</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'babylone']">Babylone</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'extends']">Extends</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'simple']">Simple</button>
 </section>
 </div>
 <div *ngIf="this.comp == 'java'" class="competence-details">
@@ -482,9 +482,9 @@
     </section>
     <section class="competence-section">
     <h4>Réalisation associées : </h4>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Babylone</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Extends</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Transurvey</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'babylone']">Babylone</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'extends']">Extends</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'transurvey']">Transurvey</button>
 </section>
 </div>
 <div *ngIf="this.comp == 'documentation'" class="competence-details">
@@ -554,10 +554,10 @@
     <section class="competence-section">
     <h4>Réalisation associées : </h4>
     <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'geosavior']">Geosavior</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Babylone</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Extends</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Transurvey</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Simple</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'babylone']">Babylone</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'extends']">Extends</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'transurvey']">Transurvey</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'simple']">Simple</button>
 </section>
 </div>
 <div *ngIf="this.comp == 'test'" class="competence-details">
@@ -618,9 +618,9 @@
     <section class="competence-section">
     <h4>Réalisation associées : </h4>
     <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'geosavior']">Geosavior</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Babylone</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Extends</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Transurvey</button>
-    <button class="btn bg-secondary btn-lg m-1 p-2">Simple</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'babylone']">Babylone</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'extends']">Extends</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'transurvey']">Transurvey</button>
+    <button class="btn bg-secondary btn-lg m-1 p-2" [routerLink]="['/realisation', 'simple']">Simple</button>
     </section>
 </div>
