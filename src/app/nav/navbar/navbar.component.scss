@@ -37,12 +37,16 @@
   }
 
   .burger-menu-button {
-    display: block;
-    font-size: 1.5rem;
-    color: #333;
-    cursor: pointer;
-    position: relative; 
-    z-index: 10; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    z-index: 1000; 
   }
 
   
@@ -56,7 +60,23 @@
   }
 }
 
-/* Menu ouvert */
 .mat-menu-panel.open {
   display: block;
+}
+
+.linkedin-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  transition: transform 0.2s ease;
+}
+
+.linkedin-icon:hover {
+  transform: scale(1.1);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
 }
