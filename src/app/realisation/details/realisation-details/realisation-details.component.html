@@ -1,0 +1,63 @@
+
+<div *ngIf="this.real == 'geosavior'" class="realisation-card">
+    <div class="image-container">
+    <img src="assets/logo_geosavior.png" alt="Geosavior" class="realisation-image" />
+    </div>
+    <div class="realisation-content">
+        <!-- Titre principal -->
+        <h2 class="realisation-title">Réalisation – Geosavior</h2>
+      
+        <!-- Contexte -->
+        <h3 class="realisation-subtitle">Contexte</h3>
+        <p class="realisation-text">
+          Lors de ma <strong>troisième année d'études</strong>, avec un groupe de cinq étudiants, nous avons développé une <em>application mobile</em> pour l’association <strong>Sibylline Océans</strong>, en partenariat avec <strong>Gandi</strong>. Le projet avait pour objectif de permettre aux personnes découvrant un animal échoué sur la plage de signaler l'incident avec la <strong>position GPS exacte</strong>. Cette alerte permettrait aux <strong>pompiers</strong> ou aux <strong>centres spécialisés pour animaux marins</strong> d'être contactés rapidement.
+          <br>
+          En outre, selon l'animal et son état, l'utilisateur recevrait une série de <strong>questions spécifiques</strong> et, en fonction des réponses, des instructions adaptées sur les gestes à réaliser ou à éviter.
+          <br>
+          Dans un contexte écologique où de plus en plus d'animaux marins s'échouent sur nos plages, ce projet s'inscrit dans une démarche de <strong>sensibilisation</strong> et de <strong>protection de la faune marine</strong>.
+        </p>
+      
+        <!-- Déroulé du projet -->
+        <h3 class="realisation-subtitle">Déroulé du projet</h3>
+        <p class="realisation-text">
+          Au début du projet, nous avons organisé une réunion avec la présidente de <strong>Sibylline Océans</strong> et un responsable technique de chez <strong>Gandi</strong>, ce qui nous a permis de cadrer le projet avec ses <strong>contraintes techniques</strong>. Après cette réflexion, j’ai mis en place un modèle de données permettant de répondre correctement aux différentes demandes, car selon l'animal, les questions posées à l'utilisateur et les conseils donnés varient.
+          <br>
+          Après un mois, lors de la <strong>deuxième réunion</strong>, une nouvelle contrainte est apparue : la présidente de <strong>Sibylline Océans</strong> n’a pas de smartphone et ne peut donc pas administrer l’application. Grâce à mon <strong>adaptabilité</strong> (lien compétence) et à mes compétences en <strong>gestion de projet</strong> (lien compétence), nous avons su rebondir rapidement. J’ai alors proposé de mettre en place un <strong>site web</strong> avec <strong>Angular</strong> (lien compétence) pour administrer l’application. 
+          <br>
+          Depuis ce site, elle pourrait ajouter la liste de tous les animaux susceptibles de s’échouer sur la plage, avec une courte description et les différents conseils à suivre.
+          <br>
+          Je me suis donc chargé de la mise en place de l'administration des animaux, comprenant une page dédiée avec un formulaire permettant d'ajouter un animal en renseignant son nom, son espèce, un conseil de premiers secours et, enfin, s’il s’agit d’un animal nécessitant une prise en charge rapide. 
+          <br>
+          Dans ce formulaire, j’ai utilisé <strong>FormControl</strong> et des <strong>Validators</strong> pour contrôler que les informations renseignées correspondent aux attentes : vérifier que le nom soit bien du texte et non des chiffres, et que le champ ne soit pas vide. Une fois le formulaire rempli, les informations permettent de créer un objet représentant l’animal, lequel est ensuite transmis au back-end via une requête <strong>POST</strong>.
+          <br>
+          Côté back-end, cet objet est récupéré et stocké en base de données grâce à <strong>Java JPA</strong> (<strong>Jakarta Persistence API</strong>). L’animal est ensuite renvoyé au front-end avec son <strong>ID persisté</strong>, ce qui permet de mettre à jour la liste des animaux.
+          <br>
+          Pour afficher cette liste, j'ai utilisé le framework <strong>Material Design</strong>, en m'appuyant sur son composant <strong>mat-table</strong>, qui permet de gérer des listes de données. Dans mon cas, elle correspond à la liste des animaux. Chaque colonne de la table affiche une information spécifique sur l’animal.
+          <br>
+          Cette liste est récupérée dans le <strong>ngOnInit</strong> du composant, permettant ainsi d'afficher automatiquement les derniers animaux à chaque rafraîchissement de page.
+          <br>
+          J'ai également ajouté une dernière colonne affichant de petites <strong>icônes</strong> représentant les actions possibles sur un animal : suppression et modification.
+          <br>
+          <ul >
+            <li><p class="realisation-text"><strong>Suppression</strong>: Une requête POST est envoyée avec uniquement l’ID de l’animal. Grâce au repository Java JPA, l'animal correspondant est supprimé de la base de données.</p></li>
+            <li><p class="realisation-text"><strong>Modification</strong>: Lorsqu’un utilisateur clique sur l’icône de modification, une pop-up apparaît grâce à mat-dialog, un autre composant de Material Design. J’ai intégré les différentes informations de l’animal dans des champs modifiables accompagnés d’un bouton "Confirmer". Lors du clic sur ce bouton, la pop-up se ferme et une requête POST est envoyée au back-end contenant les informations mises à jour. L’animal est ensuite modifié en base de données via le repository Java JPA.</p></li>
+          </ul>
+          <p class="realisation-text">
+          <br>
+          Sur une autre page, j'ai implémenté la <strong>création des questions</strong>. L’utilisateur saisit l’intitulé de la question et sélectionne l’animal auquel elle doit être liée. Ainsi, chaque animal dispose de sa propre liste de questions.
+          <br>
+          En base de données, une question possède une clé étrangère correspondant à l'ID de l’animal, ce qui permet de persister cette liaison grâce à Java JPA, via une table d’association. Côté back-end, l’animal possède un attribut contenant sa liste de questions.
+          <br>
+          Pour l’affichage des questions, j’ai réutilisé le même principe que pour les animaux, en utilisant Material Design pour les tableaux et les pop-ups.
+          </p>
+        <h3 class="realisation-subtitle">Conclusion</h3>
+        <p class="realisation-text">
+          À la finalisation du projet, nous avons été interviewés par <strong>France 3 Aquitaine</strong> (lien vers l’article) pour présenter l’application. Cela lui a offert une grande visibilité et a suscité des retours très positifs. Pour moi, ce projet a été une <strong>expérience très enrichissante</strong>, tant sur le plan <strong>technique</strong> que pour la visibilité qu’il m’a apportée. Cependant, en raison des problèmes rencontrés par l'association Sibylline Océans, l’application n’est malheureusement toujours pas en ligne.
+          <br>
+          Avec du recul, je réalise que j’ai joué un rôle moteur en étant à l’initiative de la proposition de créer un <strong>site web</strong> pour administrer l’application et en suggérant de prendre en charge son <strong>hébergement</strong>. J'ai également su maintenir la <strong>motivation de l’équipe</strong> tout au long du projet, malgré une communication compliquée avec la présidente de Sibylline Océans, souvent très occupée. Nous avons réussi à mener le projet à bien malgré des attentes évolutives.
+          <br>
+          Cependant, je regrette de ne pas avoir mis en place un <strong>système de détection automatique des animaux</strong> à partir des photos envoyées. Cela aurait apporté une <strong>valeur ajoutée</strong> supplémentaire à l’application.
+        </p>
+      </div>      
+  </div>
+  

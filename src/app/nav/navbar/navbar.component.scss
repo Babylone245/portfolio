@@ -4,15 +4,19 @@
   align-items: center;
   padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative; /* Ajoutez position relative ici */
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  z-index: 1000; 
 }
 
-/* Masquer le burger menu sur les écrans larges */
+
 .burger-menu-button {
   display: none;
 }
 
-/* Style du titre du site */
+
 .site-title {
   font-size: 1.5rem;
   font-weight: bold;
@@ -21,36 +25,34 @@
   letter-spacing: 1px;
 }
 
-/* Remplissage de l'espace vide entre les éléments */
+
 .fill-space {
   flex-grow: 1;
 }
 
-/* Mobile styles */
+
 @media screen and (max-width: 600px) {
-  /* Masquer la navbar normale sur mobile */
   .normal-nav {
     display: none;
   }
 
-  /* Afficher le bouton burger sur mobile */
   .burger-menu-button {
     display: block;
     font-size: 1.5rem;
     color: #333;
     cursor: pointer;
-    position: relative; /* Ajoutez position relative ici */
-    z-index: 10; /* Assurez-vous que le bouton burger est devant les autres éléments */
+    position: relative; 
+    z-index: 10; 
   }
 
-  /* Afficher le menu burger (mat-menu) sur mobile */
+  
   .mat-menu-panel {
     display: flex;
-    position: absolute; /* Positionnez-le sous le bouton burger */
-    top: 50px; /* Ajustez cette valeur selon la taille de votre toolbar */
+    position: absolute; 
+    top: 50px; 
     right: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 10; /* Assurez-vous qu'il est au-dessus d'autres éléments */
+    z-index: 10; 
   }
 }
 

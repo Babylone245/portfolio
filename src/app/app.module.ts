@@ -11,12 +11,20 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CompetenceComponent } from './competence/competence/competence.component';
+import { RealisationComponent } from './realisation/realisation/realisation.component';
+import { CompetenceDetailsComponent } from './competence/details/competence-details/competence-details.component';
+import { RealisationDetailsComponent } from './realisation/details/realisation-details/realisation-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccueilComponentComponent,
-    NavbarComponent
+    NavbarComponent,
+    CompetenceComponent,
+    RealisationComponent,
+    CompetenceDetailsComponent,
+    RealisationDetailsComponent
   ],
   imports: [
     BrowserModule,
