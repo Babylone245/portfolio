@@ -15,6 +15,7 @@ import { CompetenceComponent } from './competence/competence/competence.componen
 import { RealisationComponent } from './realisation/realisation/realisation.component';
 import { CompetenceDetailsComponent } from './competence/details/competence-details/competence-details.component';
 import { RealisationDetailsComponent } from './realisation/details/realisation-details/realisation-details.component';
+import { ParcourDetailsComponent } from './accueil/parcour-details/parcour-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RealisationDetailsComponent } from './realisation/details/realisation-d
     CompetenceComponent,
     RealisationComponent,
     CompetenceDetailsComponent,
-    RealisationDetailsComponent
+    RealisationDetailsComponent,
+    ParcourDetailsComponent
   ],
   imports: [
     BrowserModule,

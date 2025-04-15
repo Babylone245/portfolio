@@ -122,7 +122,7 @@
         <p class="realisation-text">
           À la fin du projet, je me suis rendu à la <strong>RRTL</strong> pour déployer l’application sur leurs serveurs, leur permettant ainsi de l’essayer. Nous avons également fourni les différentes documentations techniques, fonctionnelles et également le git afin de faciliter la continuité du projet.  
           Avec du recul, pour un tout premier projet en <strong>Java/Angular</strong>, je pense avoir particulièrement bien réussi la partie sur laquelle j’ai travaillé, de plus j’ai pu apporter une plus-value en déployant l’application dans l’entreprise.  
-          Le projet s’est très bien terminé, offrant à la RRTL une application fonctionnelle, permettant de répondre à leurs besoins et ainsi récolter les différents avis des usagers des lignes de bus de la RRTL.  
+          Le projet s’est très bien terminé, offrant à la RRTL une application fonctionnelle, permettant de répondre à leurs besoins et ainsi récolter les différents avis des usagers des lignes de bus de la RRTL. A l'époque l'application devait être présenté aux différents investisseurs de la RRTL pour la déployer à grande échelle dans les différentes lignes de bus. 
           Ce projet était très complet, autant techniquement que fonctionnellement, ce qui a clairement contribué à ma montée en compétences rapide. Il m’a constamment poussé à dépasser mes limites, rendant l’expérience particulièrement enrichissante.
         </p>
         <h3 class="realisation-subtitle">Compétences associées : </h3>
@@ -171,7 +171,7 @@
         <p class="realisation-text">
           À la fin du projet, je me suis occupé de mettre en place un <strong>VPS</strong> pour héberger la base de données de l’application et la déployer sur le PC du gérant d’Etxe Logistika. Tellement satisfait de la solution que nous lui avons proposée et du travail réalisé, il nous a par la suite embauchés en freelance pour ajouter de nouvelles fonctionnalités.
           <br>
-          Avec du recul, cette collaboration m’a beaucoup apporté sur le plan professionnel. Découvrir la gestion de projet de cette manière, et voir qu’elle a été aussi réussie, me rend particulièrement satisfait. Plus de 4 ans après Etxe Logistika, il est toujours utilisé mensuellement pour générer leurs factures et leurs documents administratifs, et il est maintenant question d’éventuellement l'étendre à des entreprises partenaires de Etxe Logistika.
+          Avec du recul, cette collaboration m’a beaucoup apporté sur le plan professionnel. Découvrir la gestion de projet de cette manière, et voir qu’elle a été aussi réussie, me rend particulièrement satisfait. Plus de 4 ans après Etxe Logistika, l'application est toujours utilisé mensuellement pour générer leurs factures et leurs documents administratifs, et il est maintenant question d’éventuellement l'étendre à des entreprises partenaires de Etxe Logistika.
         </p>
         <h3 class="realisation-subtitle">Compétences associées : </h3>
         <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'projet']">Gestion de projet</button>
@@ -188,36 +188,125 @@
         <img src="assets/Logo-CEE.png" alt="Babylone" class="realisation-image" />
     </div>
     <div class="realisation-content">
-        <!-- Titre principal -->
-        <h2 class="realisation-title">Réalisation – BABYLONE ENCOURS </h2>
-    </div>
-    <h3 class="realisation-subtitle">Compétences associées : </h3>
+      <!-- Titre principal -->
+      <h2 class="realisation-title">Réalisation – Babylone </h2>
+
+      <h3 class="realisation-subtitle">Contexte</h3>
+      <p class="realisation-text">
+        <strong>Babylone</strong> est une application web permettant de faciliter la constitution de dossier d'économie d'énergie pour un obligé. Un obligé est une entreprise qui doit réaliser des économies d'énergie pour respecter la réglementation en vigueur, sinon il est contraint de payer d'importantes pénalités financières. 
+        <br>
+        Babylone est en constante évolution puisqu'elle doit suivre les différents arrêtés qui entrent en vigueur pour permettre aux obligés de respecter la réglementation.
+      </p>
+
+      <!-- Déroulé du projet -->
+      <h3 class="realisation-subtitle">Réalisation sur le projet</h3>
+      <p class="realisation-text">
+        Pour ce projet, j'étais en charge de la réalisation d'évolutions sur l'application, que ce soit sur la partie front-end (Angular) ou back-end (Java) ou les deux.
+        Une évolution que j'ai pu mettre en place a été de permettre d'accepter des organismes étrangers, c'est-à-dire qu'ils n'ont pas de SIREN ou de SIRET mais un numéro de TVA intracommunautaire. 
+        Un organisme étant la classe mère, et pour les classes enfants il y a : professionnel ou partenaire qui eux ont un SIRET, et bénéficiaire qui a un SIREN. Étant donné que le numéro de TVA intracommunautaire peut être commun aux trois, j'ai donc mis le numéro de TVA intracommunautaire dans la classe mère et j'y ai aussi positionné un booléen pour savoir si l'organisme est étranger ou non.
+        Toujours côté back-end, j'ai modifié le DTO de l'organisme pour y ajouter le numéro de TVA intracommunautaire et le booléen.
+        <br><br>
+        Pour le côté front-end, j'ai modifié le formulaire de création d'un professionnel/partenaire et d'un bénéficiaire pour y ajouter une mat-checkbox qui représente le booléen. Suivant le booléen, avec un *ngIf*, j'affiche soit le numéro de TVA soit SIRET/SIREN.
+        Sur le mat-checkbox, à l'event `clic`, ça utilise une méthode que j'ai créée qui permet de vider les informations saisies dans SIRET/SIREN si jamais on passe en numéro de TVA, et inversement si on repasse en SIRET/SIREN, je fais passer le numéro de TVA à `null`. C'est pour éviter d'avoir des résidus dans les objets qui ne sont pas cohérents.
+        Après avoir fait l'évolution principale, j'ai dû m'occuper des différents impacts que cela a eus sur l'application. Par exemple, il y a plein de batchs qui exportent différents reporting, et où l'on met souvent le SIRET/SIREN de l'organisme. Pour éviter de faire des ternaires ou des `if` et faire le choix entre SIRET/SIREN et numéro de TVA, j'ai implémenté une méthode dans la classe parent qui s'appelle `getSiretSirenOrNumeroTVA()` et qui me retourne l'information qu’il faut suivant l'organisme. Vu que c'est implémenté dans la classe parent, que je sois un bénéficiaire ou un partenaire, j'aurai la méthode.
+        <br><br>
+        Pour la méthode que j'ai créée, j'ai mis en place des tests unitaires afin de couvrir le code et d'éviter des régressions sur de prochaines évolutions.
+        J'ai créé des données factices avec un organisme étranger et un organisme classique et j'ai pu tester que la méthode renvoyait bien le numéro de TVA intracommunautaire dans le cas d'un organisme étranger et le SIRET/SIREN pour le classique.
+        <br><br>
+        Après tout ça, j'ai push sur ma branche et j'ai fait une merge request de mon code sur la branche develop, ce qui a fait tourner la pipeline de SonarQube. Le temps que celle-ci tourne, j'ai testé mon développement en local.
+        La pipeline n'a rien retourné comme code smell ou bug, et la couverture de code était au-dessus de 80 %, du coup j'ai fait évoluer le ticket d'évolution pour que celui-ci soit testé par un autre développeur. Le test fut concluant, du coup le Lead Technique a relu le code et a validé la merge request.
+        <br><br>
+        Ensuite, l'évolution a été testée par le Product Owner qui l'a validée. Pour terminer, elle est partie en production à la fin du sprint. 
+      </p>
+
+      <!-- Conclusion -->
+      <h3 class="realisation-subtitle">Conclusion</h3>
+      <p class="realisation-text">
+        Pour cette application qui est en constante évolution, j'ai pu mettre en place plusieurs développements, que ce soit sur la partie front-end ou back-end, et chacun de ces développements est actuellement présent en production et utilisé par les utilisateurs.
+        L'évolution que j'ai expliquée a permis d'ouvrir la possibilité à des organismes étrangers de pouvoir faire des dossiers d'économie d'énergie ou, du moins, d'en être acteur. Cela permet à l'obligé d'accroître son nombre de CEE. 
+        Pour moi, cette évolution m'a permis de prendre mes marques dans le projet et de découvrir les différentes techniques et fonctionnelles de l'application, étant donné que les organismes sont essentiels dans la constitution d'un dossier.
+        <br><br>
+        Dès le départ du développement, j'ai proposé de factoriser le numéro de TVA et le booléen dans la classe mère afin de ne pas avoir de redondance dans le code et de pouvoir l'utiliser dans les différentes classes enfants. Ensuite, j'ai proposé l'idée de la méthode dans la classe mère afin d'éviter les impacts et de remplacer tous les endroits où il y a `getSiret()` ou `getSiren()` par cette nouvelle méthode.
+        Le Lead Technique a tout de suite validé mes idées et les a trouvées pertinentes.
+        Grâce à cela, j'ai pu gagner la confiance de mon équipe et de mon Lead Technique. Du coup, on m'a confié des sujets plus complexes par la suite et j'ai pu être autonome sur ces sujets.
+      </p>
+
+      <h3 class="realisation-subtitle">Compétences associées : </h3>
     <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'projet']">Gestion de projet</button>
     <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'git']">GIT</button>
     <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'sql']">SQL</button>
     <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'java']">Java</button>
     <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'angular']">Angular</button>
     <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'test']">Test</button>
-    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'documentation']">Documentation</button>
-    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'deploiement']">Deploiement</button>
-    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'communication']">Communication</button>
+  </div>
 </div>
 <div *ngIf="this.real == 'extends'" class="realisation-card">
     <div class="image-container">
         <img src="assets/Logo-CEE.png" alt="EXTENDS" class="realisation-image" />
     </div>
     <div class="realisation-content">
-        <!-- Titre principal -->
-        <h2 class="realisation-title">Réalisation – EXTENDS ENCOURS </h2>
-    </div>
-    <h3 class="realisation-subtitle">Compétences associées : </h3>
+      <!-- Titre principal -->
+      <h2 class="realisation-title">Réalisation – Extends </h2>
+
+      <h3 class="realisation-subtitle">Contexte</h3>
+      <p class="realisation-text">
+        <strong>Extends</strong> est un projet permettant d'intégrer les fonctionnalités et les données d'une application de gestion de dossier d'économie d'énergie dans <strong>Babylone</strong>.
+        L'obligé (entreprise) utilise une application pour constituer le début d'un dossier d'économie d'énergie. Ensuite, le dossier est intégré sur Babylone pour les autres étapes. 
+        Cette application n'appartient pas à l'obligé, qui paye donc son utilisation. À l'inverse, Babylone est interne. L'objectif est donc de réduire les coûts et de regrouper toutes les données sur une seule et même application.
+        Extends est donc le projet en charge de reprendre toutes les données et fonctionnalités et de les intégrer dans Babylone, tout en sachant que des développements sont réalisés en parallèle sur Babylone.
+      </p>
+    
+      <!-- Déroulé du projet -->
+      <h3 class="realisation-subtitle">Réalisation sur le projet</h3>
+      <p class="realisation-text">
+        Pour ce projet, j’étais en charge des développements visant à reprendre toutes les fonctionnalités, que ce soit en front-end (Angular), en back-end (Java), ou les deux.
+        Une fonctionnalité que j’ai pu développer consistait à générer deux documents administratifs et à créer les comptes des personnes devant les signer.
+        <br><br>
+        Pour le front-end, a l'event d'un `clic` sur le bouton de génération des documents, j’ai créé une méthode qui boucle sur les emails des signataires et fait un appel au back-end avec l’email. Le back retourne un booléen indiquant si le compte existe ou non. 
+        Concrètement, j’utilise le repository utilisateur, qui dispose déjà d’une méthode pour récupérer un utilisateur par son mail. Si aucune donnée n’est retournée, j’envoie `false` au front.
+        Si le back-end retourne `false`, j'affiche un `dialogRef` demandant à l’utilisateur de confirmer la création d’un compte pour l’email concerné. En cas de confirmation, j’effectue un appel au back-end en passant un `UtilisateurDto` contenant l’email, le nom, le prénom et le numéro de téléphone.
+        Côté back-end, je fais un `entityToDto` via un mapper déjà implémenté et je persiste l'utilisateur en base de données via le repository Utilisateur.
+        Dans le cas où l'utilisateur refuse la création, la génération des documents est arrêtée, et j’affiche un message d’erreur via un service d’alerte (déjà existant) qui affiche un toaster en haut de la page.
+        Une fois tous les utilisateurs créés, j’effectue un appel au back-end en passant l’ID du dossier pour générer les documents.
+        <br><br>
+        Côté back-end, j’ai créé deux templates HTML contenant les informations statiques, et j’ai utilisé Thymeleaf pour les parties dynamiques.
+        Je me suis appuyé sur un exemple de PDF pour recréer le document en HTML, en y ajoutant du CSS conforme aux normes de l’obligé.
+        Grâce à l’ID du dossier, j’utilise le `dossierRepository` pour récupérer toutes les données nécessaires (signataires, organisme, adresse).
+        Ensuite, j’ai créé un contexte dans lequel j’ai défini toutes les variables dynamiques, puis j’ai récupéré le template HTML via son path.
+        J’ai utilisé `TemplateEngine` avec la méthode `process` pour injecter les données dans le template.
+        Le document est ensuite enregistré en base via une méthode déjà existante qui stocke l’ID, le nom du document et un UUID pour l’enregistrer sur le serveur S3.
+        Ensuite, je pousse les documents dans la liste de documents du dossier, ce qui déclenche automatiquement la persistance via JPA grâce à la table d'association.
+        <br><br>
+        Pour les tests unitaires, j’ai créé un dossier avec des signataires et organismes factices afin de tester la méthode de génération. 
+        J’ai vérifié que la méthode ne renvoyait pas d’exception avec `assertDoesNotThrow`, et j’ai aussi couvert le cas où une exception devait être levée avec `assertThrows`.
+        <br><br>
+        Pour terminer, j’ai poussé sur ma branche et fait une merge request vers `develop-extends`, ce qui a déclenché la pipeline SonarQube. 
+        Pendant l’exécution, j’ai testé le développement en local. La pipeline n’a rien retourné (pas de code smell ni de bug) et la couverture de code était au-dessus de 80 %, donc j’ai fait évoluer le ticket sur Jira pour qu’il soit testé par un autre développeur.
+        Le test a été concluant. J’ai ensuite dû rebase mon ticket, car la branche `develop-extends` avait récupéré tous les développements de Babylone présents sur `develop`. 
+        Après cela, le Lead Technique a relu et validé ma merge request.
+        <br><br>
+        Enfin, l’évolution a été testée et validée par le Product Owner. Le développement sera embarqué dans le merge final de `develop-extends`, prévu fin mai.
+      </p>
+    
+      <!-- Conclusion -->
+      <h3 class="realisation-subtitle">Conclusion</h3>
+      <p class="realisation-text">
+        Pour conclure, ce projet était essentiel pour l'obligé, car il permet une réduction significative des coûts en regroupant tout dans une seule application.
+        Concernant ma réalisation, il s’agit clairement d’une fonctionnalité majeure dans cette reprise de données, puisqu’elle permet de créer les comptes des signataires, 
+        indispensables à la signature des documents, eux-mêmes cruciaux pour l’obtention des CEE.
+        <br><br>
+        Sur ce développement, j’ai proposé de mettre en place un template HTML avec l’utilisation de Thymeleaf pour gérer les données dynamiques, ce qui a permis de trouver directement une solution technique efficace.
+        Encore une fois, cela m’a permis de prouver mon efficacité et ma capacité à être force de proposition face aux différents enjeux rencontrés par l’équipe.
+      </p>
+
+      <h3 class="realisation-subtitle">Compétences associées : </h3>
     <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'projet']">Gestion de projet</button>
     <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'git']">GIT</button>
     <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'sql']">SQL</button>
     <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'java']">Java</button>
     <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'angular']">Angular</button>
     <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'test']">Test</button>
-    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'documentation']">Documentation</button>
-    <button class="btn bg-primary btn-lg m-1 p-2" [routerLink]="['/competence', 'communication']">Communication</button>
+  </div>
 </div>
+
   

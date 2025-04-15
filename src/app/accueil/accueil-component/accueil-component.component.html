@@ -53,8 +53,7 @@
         <div class="container py-5">
           <h2 class="text-primary fw-bold mb-4 text-center" id="experience">Mon parcours</h2>
           <div class="timeline">
-            
-            <!-- Événement gauche -->
+
             <div class="timeline-item left">
               <div class="timeline-content shadow rounded p-4">
                 <h5 class="fw-bold">Septembre 2023 -> Aout 2025 - Alternance - Développeur Full Stack</h5>
@@ -71,9 +70,9 @@
                 <button class="btn btn-lg m-1 p-2" [routerLink]="['/competence', 'test']">Test</button>
                 <button class="btn btn-lg m-1 p-2" [routerLink]="['/competence', 'documentation']">Documentation</button>
               </div>
+              <button class="btn btn-lg m-1 p-2" [routerLink]="['/parcours', 'alternance']">Voir plus</button>
             </div>
         
-            <!-- Événement droite -->
             <div class="timeline-item right">
               <div class="timeline-content shadow rounded p-4">
                 <h5 class="fw-bold">Mars 2023 -> Aout 2023 - Stage - Développeur Full Stack</h5>
@@ -91,23 +90,24 @@
                 <button class="btn btn-lg m-1 p-2" [routerLink]="['/competence', 'documentation']">Documentation</button>
                 <button class="btn btn-lg m-1 p-2" [routerLink]="['/competence', 'deploiement']">Deploiement</button>
               </div>
+              <button class="btn btn-lg m-1 p-2" [routerLink]="['/parcours', 'stage']">Voir plus</button>
             </div>
         
-            <!-- Ajoute autant de blocs que tu veux -->
             <div class="timeline-item left">
               <div class="timeline-content shadow rounded p-4">
-                <h5 class="fw-bold">Septembre 2020 -> Aout 2025 - Étudiant - Mastère Expert en ingénierie du logiciel</h5>
+                <h5 class="fw-bold">Septembre 2020 -> Aout 2025 - Étudiant</h5>
                 <p class="text-muted mb-1">ESIEA - Dax</p><a href="https://www.esiea.fr/"><img src="assets/esiea.png" style="width: 100px;"></a>
-                <p>Formation en ingénierie logicielle, gestion de projet agile, conception orientée objet, architecture logicielle</p>
-                <p>La formation permet la pratique avec notamment la réalisation de projet chaque semestre</p>
+                <p>Mastère Expert en ingénierie du logiciel</p>
               </div>
+              <button class="btn btn-lg m-1 p-2" [routerLink]="['/parcours', 'master']">Voir plus</button>
             </div>
             <div class="timeline-item right">
               <div class="timeline-content shadow rounded p-4">
-                <h5 class="fw-bold">Septembre 2016 -> Aout 2019 - Etudiant - Bac STI2D</h5>
+                <h5 class="fw-bold">Septembre 2016 -> Aout 2019 - Etudiant</h5>
                 <p class="text-muted mb-1">Lycée de borda - Dax</p><a href="https://lyceedeborda.fr/"><img src="assets/borda.png" style="width: 100px;"></a>
                 <p>Baccalauréat sciences et technologies de l'industrie et du développement durable option Systèmes d'Information et Numérique</p>
               </div>
+              <button class="btn btn-lg m-1 p-2" [routerLink]="['/parcours', 'bac']">Voir plus</button>
             </div>
         
           </div>
